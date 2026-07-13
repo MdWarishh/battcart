@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink font-body;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+::selection {
+  background-color: #1B5FFF;
+  color: white;
+}
+
+/* Battery terminal notch — the signature shape, used on cards */
+.terminal-notch {
+  position: relative;
+}
+.terminal-notch::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 24px;
+  width: 36px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 0 0 3px 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #1B5FFF;
+  outline-offset: 2px;
+}
