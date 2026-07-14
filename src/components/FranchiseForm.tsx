@@ -31,7 +31,7 @@ export default function FranchiseForm() {
 
     try {
       // FormSubmit delivers this straight to siteConfig.email — no backend required.
-      // TODO: On the very first submission, FormSubmit sends a one-time confirmation
+      // On the very first submission, FormSubmit sends a one-time confirmation
       // email to siteConfig.email that must be clicked to activate delivery.
       const res = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
         method: "POST",
@@ -59,8 +59,18 @@ export default function FranchiseForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-5">
-      <input type="hidden" name="_subject" value="New BattKart Franchise Enquiry" />
+      {/* Email subject line */}
+      <input type="hidden" name="_subject" value="🔋 New BattKart Franchise Enquiry" />
+      {/* Disable FormSubmit's captcha page so it stays a clean AJAX submit */}
       <input type="hidden" name="_captcha" value="false" />
+      {/* Nicely formatted HTML table email instead of plain key:value list */}
+      <input type="hidden" name="_template" value="table" />
+      {/* Keep fields in this exact order inside the email */}
+      <input
+        type="hidden"
+        name="_order"
+        value="name,phone,email,city,businessType,investment,message"
+      />
 
       <div className="sm:col-span-1">
         <label className="block text-sm font-medium text-ink/80 mb-1.5" htmlFor="name">Full name</label>

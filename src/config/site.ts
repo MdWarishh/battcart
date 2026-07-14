@@ -5,12 +5,12 @@ export const siteConfig = {
   name: "BattKart",
   tagline: "Powering Every Journey",
 
-  // TODO: replace with the real shop phone number (used by the call button & tel: links)
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
+  // Shop phone number (used by the call button & tel: links)
+  phone: "+91 70073 60930",
+  phoneHref: "tel:+917007360930",
 
-  // TODO: replace with the real email — franchise & contact forms deliver here via FormSubmit
-  email: "info@battkart.in",
+  // Franchise & contact forms deliver here via FormSubmit
+  email: "battzkart@gmail.com",
 
   whatsapp: "https://wa.me/message/SETDG4E6AMHDB1",
   facebook: "https://www.facebook.com/share/1GJvmodFBr/",
