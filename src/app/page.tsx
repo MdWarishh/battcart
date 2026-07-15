@@ -30,7 +30,7 @@ export default function Home() {
             <div className="animate-fadeUp">
               <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-volt border border-volt/30 rounded-full px-3 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-volt animate-pulseDot" />
-                DELHI-NCR &middot; BATTERY &amp; SOLAR CARE
+                India's &middot; BATTERY &amp; SOLAR CARE
               </span>
 
               <h1 className="mt-7 font-display font-extrabold text-4xl sm:text-5xl md:text-[3.4rem] leading-[1.08] max-w-xl">
