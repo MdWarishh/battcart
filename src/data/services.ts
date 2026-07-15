@@ -19,29 +19,59 @@ export const services: Service[] = [
     bullets: [
       "On-the-spot voltage & load testing",
       "Terminal & corrosion inspection",
-      "Printed health report, no obligation",
+      
     ],
     image:
-      "https://images.unsplash.com/photo-1632823469850-1b7b1e8b7692?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1671782584185-1300064c5289?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAyfHxiYXR0ZXJ5fGVufDB8fDB8fHww",
   },
   {
-    id: "solar-checkup",
-    code: "CHK-02",
-    title: "Get Solar Checkup",
-    short: "Panel output & inverter battery diagnostics.",
+    id: "purchase-inventory",
+    code: "SRV-02",
+    title: "Purchase Inventory/Battery",
+    short: "Browse our full in-stock range across brands.",
     detail:
-      "Solar setups lose efficiency silently. We inspect panel output, charge controller behaviour and battery bank health so your system keeps delivering the power it's rated for.",
+      "Explore our complete inventory of car, bike, inverter and solar batteries from trusted brands, all in stock and ready. Compare specs, ratings and pricing, and we'll set aside the right unit for you.",
     bullets: [
-      "Panel output & wiring inspection",
-      "Charge controller diagnostics",
-      "Battery bank capacity check",
+      "Wide brand & capacity range in stock",
+      "Transparent, upfront pricing",
+      "Reserve online, collect or get it delivered",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    id: "purchase-solar-system",
+    code: "SRV-03",
+    title: "Purchase Solar System",
+    short: "End-to-end solar setup, sized to your load.",
+    detail:
+      "From rooftop panels to charge controller and battery bank, we design and install a solar system sized to your actual power needs — with genuine components and a clear installation timeline.",
+    bullets: [
+      "Free load assessment & sizing",
+      "Genuine panels, inverters & batteries",
+      "Full installation & commissioning",
     ],
     image:
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop",
   },
   {
+    id: "purchase-vehicle-battery",
+    code: "SRV-04",
+    title: "Purchase Car/Bike/Truck Battery",
+    short: "Genuine vehicle batteries, fitted at your doorstep.",
+    detail:
+      "Tell us your vehicle type and we'll match the right battery specification, deliver it to your location and fit it on the spot — with your old battery taken off your hands.",
+    bullets: [
+      "Genuine, warranty-backed batteries",
+      "Doorstep delivery & fitting",
+      "Old battery exchange available",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1592318348310-f31b61a931c8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyJTIwYmF0dGVyeXxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
     id: "solar-cleaning",
-    code: "SRV-03",
+    code: "SRV-05",
     title: "Get Solar Cleaning",
     short: "Dust & grime removal for peak sunlight capture.",
     detail:
@@ -55,33 +85,18 @@ export const services: Service[] = [
       "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    id: "purchase-battery",
-    code: "SRV-04",
-    title: "Purchase New Battery",
-    short: "Genuine brands, fitted at your doorstep.",
+    id: "solar-checkup",
+    code: "CHK-06",
+    title: "Get Solar Checkup",
+    short: "Panel output & inverter battery diagnostics.",
     detail:
-      "Browse a curated range of car, bike, inverter and solar batteries from trusted brands. Pick your vehicle or system type and we'll match the right specification, deliver, and fit it on the spot.",
+      "Solar setups lose efficiency silently. We inspect panel output, charge controller behaviour and battery bank health so your system keeps delivering the power it's rated for.",
     bullets: [
-      "Genuine, warranty-backed batteries",
-      "Doorstep delivery & fitting",
-      "Old battery exchange available",
+      "Panel output & wiring inspection",
+      "Charge controller diagnostics",
+      "Battery bank capacity check",
     ],
     image:
-      "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: "call-battery",
-    code: "SOS-05",
-    title: "Call Battery",
-    short: "Dead battery? One tap connects you to help.",
-    detail:
-      "Stuck with a dead battery right now? Tap to call and our nearest technician is dispatched for a jumpstart, on-the-spot replacement, or towing assistance — whichever gets you moving fastest.",
-    bullets: [
-      "Direct call, no forms",
-      "Rapid-response technicians",
-      "Available for emergencies",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=80&w=1200&auto=format&fit=crop",
   },
 ];

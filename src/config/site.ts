@@ -10,7 +10,7 @@ export const siteConfig = {
   phoneHref: "tel:+917007360930",
 
   // Franchise & contact forms deliver here via FormSubmit
-  email: "battzkart@gmail.com",
+  email: "warishmohd987@gmail.com",
 
   whatsapp: "https://wa.me/message/SETDG4E6AMHDB1",
   facebook: "https://www.facebook.com/share/1GJvmodFBr/",

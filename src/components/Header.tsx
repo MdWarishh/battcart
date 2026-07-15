@@ -18,11 +18,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-ink/10">
       <div className="mx-auto max-w-7xl px-5 md:px-8 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/images/logo.png" alt="BattKart" width={44} height={44} className="h-10 w-auto" priority />
-          <span className="font-display font-bold text-xl tracking-tight text-ink">
-            Batt<span className="text-volt">Kart</span>
-          </span>
+        <Link href="/" className="flex items-center shrink-0">
+          <Image
+            src="/images/logo.png"
+            alt={siteConfig.name}
+            width={160}
+            height={64}
+            className="h-14 md:h-16 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

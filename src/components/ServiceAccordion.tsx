@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { services } from "@/data/services";
 import { siteConfig } from "@/config/site";
@@ -8,6 +8,21 @@ import { siteConfig } from "@/config/site";
 export default function ServiceAccordion() {
   const [activeId, setActiveId] = useState<string>(services[0].id);
   const active = services.find((s) => s.id === activeId) ?? services[0];
+
+  // If the page loads (or the hash changes) with a service id in the URL,
+  // e.g. from a hero card link (#battery-checkup), open that service.
+  useEffect(() => {
+    const applyHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && services.some((s) => s.id === hash)) {
+        setActiveId(hash);
+      }
+    };
+
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
@@ -17,11 +32,12 @@ export default function ServiceAccordion() {
           return (
             <button
               key={service.id}
+              id={service.id}
               onClick={() => setActiveId(service.id)}
-              className={`terminal-notch text-left rounded-xl border px-5 py-4 transition-colors ${
+              className={`terminal-notch scroll-mt-28 text-left rounded-xl border px-5 py-4 transition-all duration-300 ${
                 isActive
-                  ? "bg-ink text-white border-ink"
-                  : "bg-white text-ink border-ink/10 hover:border-volt/50"
+                  ? "bg-ink text-white border-ink shadow-lg shadow-ink/10"
+                  : "bg-white text-ink border-ink/10 hover:border-volt/50 hover:-translate-y-0.5"
               }`}
               aria-expanded={isActive}
             >
@@ -34,17 +50,17 @@ export default function ServiceAccordion() {
                   >
                     {service.code}
                   </span>
-                  <h3 className="font-display font-semibold text-base mt-1">
+                  <h3 className="font-display font-semibold text-lg mt-1">
                     {service.title}
                   </h3>
-                  <p className={`text-sm mt-1 ${isActive ? "text-white/70" : "text-steel"}`}>
+                  <p className={`text-sm mt-1 leading-relaxed ${isActive ? "text-white/70" : "text-steel"}`}>
                     {service.short}
                   </p>
                 </div>
                 <span
-                  className={`shrink-0 h-8 w-8 rounded-full grid place-items-center border ${
+                  className={`shrink-0 h-8 w-8 rounded-full grid place-items-center border transition-transform duration-300 ${
                     isActive ? "border-white/30 rotate-45" : "border-ink/20"
-                  } transition-transform`}
+                  }`}
                 >
                   +
                 </span>
@@ -55,12 +71,13 @@ export default function ServiceAccordion() {
       </div>
 
       <div className="lg:col-span-3 rounded-2xl border border-ink/10 bg-mist overflow-hidden">
-        <div className="relative h-56 md:h-64 w-full">
+        <div className="relative h-56 md:h-64 w-full overflow-hidden">
           <Image
+            key={active.id}
             src={active.image}
             alt={active.title}
             fill
-            className="object-cover"
+            className="object-cover animate-fadeIn"
             sizes="(min-width: 1024px) 40vw, 100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent" />
@@ -68,8 +85,8 @@ export default function ServiceAccordion() {
             {active.code}
           </span>
         </div>
-        <div className="p-6 md:p-8">
-          <h3 className="font-display font-bold text-2xl text-ink">{active.title}</h3>
+        <div key={`${active.id}-body`} className="p-6 md:p-8 animate-fadeIn">
+          <h3 className="font-display font-bold text-2xl text-ink tracking-tight">{active.title}</h3>
           <p className="mt-3 text-steel leading-relaxed">{active.detail}</p>
           <ul className="mt-5 space-y-2">
             {active.bullets.map((b) => (

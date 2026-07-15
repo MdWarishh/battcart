@@ -8,10 +8,12 @@ html {
 
 body {
   @apply bg-white text-ink font-body;
+  font-feature-settings: "ss01" on, "cv01" on;
 }
 
 h1, h2, h3, h4 {
   @apply font-display;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
@@ -34,9 +36,17 @@ h1, h2, h3, h4 {
   border-radius: 0 0 3px 3px;
 }
 
+/* Hero particle canvas sits behind content, never intercepts clicks */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

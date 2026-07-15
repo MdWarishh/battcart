@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Manrope, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 
-const display = Space_Grotesk({
+const display = Manrope({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
   variable: "--font-display",
 });
 

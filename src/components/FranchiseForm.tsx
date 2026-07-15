@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { siteConfig } from "@/config/site";
 
 const businessTypes = [
   "Two-Wheeler Battery Outlet",
@@ -27,18 +26,17 @@ export default function FranchiseForm() {
     e.preventDefault();
     setStatus("submitting");
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
 
     try {
-      // FormSubmit delivers this straight to siteConfig.email — no backend required.
-      // On the very first submission, FormSubmit sends a one-time confirmation
-      // email to siteConfig.email that must be clicked to activate delivery.
-      const res = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
+      const res = await fetch("/api/franchise", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Submission failed");
+      const result = await res.json();
+      if (!res.ok || !result.success) throw new Error("Submission failed");
       setStatus("success");
       form.reset();
     } catch {
@@ -59,19 +57,6 @@ export default function FranchiseForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-5">
-      {/* Email subject line */}
-      <input type="hidden" name="_subject" value="🔋 New BattKart Franchise Enquiry" />
-      {/* Disable FormSubmit's captcha page so it stays a clean AJAX submit */}
-      <input type="hidden" name="_captcha" value="false" />
-      {/* Nicely formatted HTML table email instead of plain key:value list */}
-      <input type="hidden" name="_template" value="table" />
-      {/* Keep fields in this exact order inside the email */}
-      <input
-        type="hidden"
-        name="_order"
-        value="name,phone,email,city,businessType,investment,message"
-      />
-
       <div className="sm:col-span-1">
         <label className="block text-sm font-medium text-ink/80 mb-1.5" htmlFor="name">Full name</label>
         <input required id="name" name="name" type="text" className="w-full rounded-lg border border-ink/15 px-4 py-2.5 focus:border-volt outline-none" placeholder="Your name" />
